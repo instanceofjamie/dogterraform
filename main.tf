@@ -218,6 +218,14 @@ resource "aws_security_group" "techtest_web_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description = "Allow all traffic through HTTPS"
+    from_port	= "443"
+    to_port	= "443"
+    protocol	= "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   // The second requirement we need to meet is "Only you should be 
   // "able to access the EC2 instances via SSH." So we will create an 
   // inbound rule that allows SSH traffic ONLY from your IP address
